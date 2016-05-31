@@ -1,0 +1,30 @@
+{
+   "background": {
+      "scripts": [ "/res/js/ajax.js", "/res/js/background.js" ]
+   },
+   "content_scripts": [ {
+      "all_frames": false,
+      "css": [ "/res/css/contents/ip.css" ],
+      "js": [ "/res/js/contents/ip.js" ],
+      "matches": [ "http://*/*", "https://*/*" ],
+      "run_at": "document_end"
+   } ],
+   "description": "一个非常简单的Chrome插件，能够在网页中显示它的IP地址和IP归属地位置。",
+   "icons": {
+      "128": "/res/icon/icon.png",
+      "64": "/res/icon/icon.png",
+      "32": "/res/icon/icon.png",
+      "16": "/res/icon/icon.png"
+   },
+   "manifest_version": 2,
+   "minimum_chrome_version": "18",
+   "name": "Website IP",
+   "browser_action": {
+      "default_icon": {
+         "19": "res/icon/icon.png",
+         "38": "res/icon/icon.png"
+      }
+   },
+   "permissions": [ "tabs", "http://*/*", "https://*/*", "webRequest", "storage" ],
+   "version": "1.0.1"
+}
