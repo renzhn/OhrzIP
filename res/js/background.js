@@ -13,7 +13,7 @@ function setStatus(status) {
 
 		// 开始监听
 		currentIPList = {};
-		chrome.webRequest.onCompleted.addListener(onCompletedFunc , { urls: [], types: [] }, []);
+		chrome.webRequest.onCompleted.addListener(onCompletedFunc , { urls: [], types: ['main_frame'] }, []);
 	}
 	else {
 		chrome.browserAction.setBadgeText({'text': 'off'});
@@ -50,6 +50,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		var ip = 'null';
 		if (currentIPList[sender.tab.url]) {
 			ip = currentIPList[sender.tab.url];
+			delete currentIPList[sender.tab.url];
 		}
 		sendResponse({'ip': ip});
 	}
