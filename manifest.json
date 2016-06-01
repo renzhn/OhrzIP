@@ -1,6 +1,6 @@
 {
    "background": {
-      "scripts": [ "/res/js/ajax.js", "/res/js/background.js" ]
+      "scripts": [ "/res/js/background.js" ]
    },
    "content_scripts": [ {
       "all_frames": false,
@@ -26,5 +26,5 @@
       }
    },
    "permissions": [ "tabs", "http://*/*", "https://*/*", "webRequest", "storage" ],
-   "version": "1.0.2"
+   "version": "1.0.3"
 }

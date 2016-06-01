@@ -1,10 +1,9 @@
 #chrome_trace_count {
 	position: fixed;
-	bottom: 0;
+	bottom: 3px;
 	background: #F1EDED;
-	padding: 5px;
+	padding: 2px 5px;
 	border: 1px solid #919191;
-	border-bottom: 0px;
 	font-size: 12px;
 	color: #333;
 	font-family: 'Arial', Helvetica, sans-serif;
@@ -17,6 +16,8 @@
 	-webkit-touch-callout: none; 
 	-webkit-user-select: none; 
 	user-select: none;
+	z-index: 2147483646;
+	opacity: 0.9;
 }
 
 .chrome_trace_count_right {
@@ -31,6 +32,3 @@
 @media print {
       #chrome_trace_count {display:none;}
 }
-
-
-

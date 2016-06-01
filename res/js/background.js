@@ -51,9 +51,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		if (currentIPList[sender.tab.url]) {
 			ip = currentIPList[sender.tab.url];
 		}
-		fetchIpLocation(ip, function(location) {
-			sendResponse({'ip': ip, 'location': location});
-		});
+		sendResponse({'ip': ip});
 	}
 });
 
@@ -65,25 +63,6 @@ function onCompletedFunc(info) {
 	return;
 }
 
-
-function fetchIpLocation(ip, callback) {
-	http_ajax('http://ip.taobao.com/service/getIpInfo.php?ip=' + ip, 'GET', false, function(data) {
-		if (true === data.success) {
-			data = JSON.parse(data.content);
-			if (0 == data.code) {
-				data = data.data;
-				data = data['country'] + ' ' + data['area'] + ' ' + data['region'] + ' ' + data['city'] + ' ' + data['isp'];
-			}
-			else {
-				data = false;
-			}
-		}
-		else {
-			data = false;
-		}
-		callback(data);
-	});
-}
 // 加载配置
 chrome.storage.local.get(['status'], function(data) {
 	if ('off' === data['status']) {
