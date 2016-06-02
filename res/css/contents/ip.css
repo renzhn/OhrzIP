@@ -1,8 +1,8 @@
 #chrome_trace_count {
 	position: fixed;
 	bottom: 3px;
-	background: #F1EDED;
-	padding: 2px 5px;
+	background: #d9ead3;
+	padding: 4px 5px;
 	border: 1px solid #919191;
 	font-size: 12px;
 	color: #333;
@@ -21,11 +21,11 @@
 }
 
 .chrome_trace_count_right {
-	right: 1%;
+	right: 10px;
 }
 
 .chrome_trace_count_left {
-	left: 1%;
+	left: 10px;
 }
 
 /* hide if in print view */
