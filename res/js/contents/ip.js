@@ -16,14 +16,14 @@ chrome.extension.sendMessage({'get': 'status'}, function(response) {
             if (response && response.ip) {
                 ip = response.ip;
             }
-            var dom = tag('div', 'chrome_trace_count', 'chrome_trace_count_right', ip)
+            var dom = tag('div', 'chrome_the_website_ip', 'chrome_the_website_ip_right', ip)
             document.body.appendChild(dom);
             dom.onmouseover = function() {
-                if (dom.className === 'chrome_trace_count_right') {
-                    dom.className = 'chrome_trace_count_left';
+                if (dom.className === 'chrome_the_website_ip_right') {
+                    dom.className = 'chrome_the_website_ip_left';
                 }
                 else {
-                    dom.className = 'chrome_trace_count_right';
+                    dom.className = 'chrome_the_website_ip_right';
                 }
             };
         });

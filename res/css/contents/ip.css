@@ -1,4 +1,4 @@
-#chrome_trace_count {
+#chrome_the_website_ip {
 	position: fixed;
 	bottom: 3px;
 	background: #d9ead3;
@@ -20,15 +20,15 @@
 	opacity: 0.9;
 }
 
-.chrome_trace_count_right {
+.chrome_the_website_ip_right {
 	right: 10px;
 }
 
-.chrome_trace_count_left {
+.chrome_the_website_ip_left {
 	left: 10px;
 }
 
 /* hide if in print view */
 @media print {
-      #chrome_trace_count {display:none;}
+      #chrome_the_website_ip {display:none;}
 }
