@@ -1,34 +1,33 @@
 #chrome_the_website_ip {
-	position: fixed;
-	bottom: 3px;
-	background: #d9ead3;
-	padding: 4px 5px;
-	border: 1px solid #919191;
-	font-size: 12px;
-	color: #333;
-	font-family: 'Arial', Helvetica, sans-serif;
-	cursor: default;
-	z-index: 9999;
-	line-height: 1;
-	outline: 0;
-	vertical-align: baseline;
-	margin: 0;
-	-webkit-touch-callout: none; 
-	-webkit-user-select: none; 
-	user-select: none;
-	z-index: 2147483646;
-	opacity: 0.9;
+	position: fixed!important;
+	bottom: 3px!important;
+	background: #d9ead3!important;
+	padding: 4px 5px!important;
+	border: 1px solid #919191!important;
+	font-size: 12px!important;
+	color: #333!important;
+	font-family: 'Arial', Helvetica, sans-serif!important;
+	cursor: default!important;
+	line-height: 1.1!important;
+	outline: 0!important;
+	vertical-align: baseline!important;
+	margin: 0!important;
+	-webkit-touch-callout: none!important; 
+	-webkit-user-select: none!important; 
+	user-select: none!important;
+	z-index: 2147483646!important;
+	opacity: 0.9!important;
 }
 
 .chrome_the_website_ip_right {
-	right: 10px;
+	right: 10px!important;
 }
 
 .chrome_the_website_ip_left {
-	left: 10px;
+	left: 10px!important;
 }
 
 /* hide if in print view */
 @media print {
-      #chrome_the_website_ip {display:none;}
+      #chrome_the_website_ip {display:none!important;}
 }

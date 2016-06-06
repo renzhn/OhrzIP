@@ -54,6 +54,32 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 		}
 		sendResponse({'ip': ip});
 	}
+	else if ('location' === request.get) {
+		var location = '';
+		http_ajax('http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip=' + request.data, 'GET', false, function(data) {
+			if (true === data.success) {
+				try {
+					var loc = JSON.parse(data.content);
+					if (loc.ret !== undefined) {
+						if (loc.ret < 0) {
+							location = '内网或未分配IP';
+						}
+						else if(loc.ret == 1) {
+							location = loc.country + ' ' + loc.province + ' ' + loc.city;
+						}
+
+					}
+				} catch(exception) {
+
+				}
+				
+			}
+			else {
+				location = '';
+			}
+		});
+		sendResponse({'location': location});
+	}
 });
 
 // 缓存IP，每次用完就清空
