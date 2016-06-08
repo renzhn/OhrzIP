@@ -1,14 +1,13 @@
-#chrome_the_website_ip {
+div#chrome_the_website_ip {
+	display:block!important;
 	position: fixed!important;
 	bottom: 3px!important;
 	background: #d9ead3!important;
 	padding: 4px 5px!important;
 	border: 1px solid #919191!important;
-	font-size: 12px!important;
+	font: 12px/1.1 'Microsoft YaHei', 'Arial', Helvetica, sans-serif!important;
 	color: #333!important;
-	font-family: 'Arial', Helvetica, sans-serif!important;
 	cursor: default!important;
-	line-height: 1.1!important;
 	outline: 0!important;
 	vertical-align: baseline!important;
 	margin: 0!important;
@@ -16,18 +15,18 @@
 	-webkit-user-select: none!important; 
 	user-select: none!important;
 	z-index: 2147483646!important;
-	opacity: 0.9!important;
+	opacity: 1!important;
 }
 
-.chrome_the_website_ip_right {
+div.chrome_the_website_ip_right {
 	right: 10px!important;
 }
 
-.chrome_the_website_ip_left {
+div.chrome_the_website_ip_left {
 	left: 10px!important;
 }
 
 /* hide if in print view */
 @media print {
-      #chrome_the_website_ip {display:none!important;}
+      div#chrome_the_website_ip {display:none!important;}
 }
