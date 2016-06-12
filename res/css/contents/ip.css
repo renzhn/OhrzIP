@@ -1,19 +1,19 @@
 #chrome_the_website_ip {
-	display: block!important;
-	position: fixed!important;
-	bottom: 3px!important;
-        background: white!important;
-	padding: 4px 5px!important;
-	border: 1px solid #919191!important;
-	font: 12px/1.1 'Microsoft YaHei', 'Arial', Helvetica, sans-serif!important;
-	color: #333!important;
-	outline: 0!important;
-	vertical-align: baseline!important;
-	margin: 0!important;
-	z-index: 2147483646!important;
-	opacity: 0.9!important;
-	right: 3px!important;
-        text-align: center;
+    display: block!important;
+    position: fixed!important;
+    bottom: 3px!important;
+    background: white!important;
+    padding: 4px 5px!important;
+    border: 1px solid #919191!important;
+    font: 12px/1.1 'Microsoft YaHei', 'Arial', Helvetica, sans-serif!important;
+    color: #333!important;
+    outline: 0!important;
+    vertical-align: baseline!important;
+    margin: 0!important;
+    z-index: 2147483646!important;
+    opacity: 0.9!important;
+    right: 3px!important;
+    text-align: center;
 }
 
 #chrome_the_website_close {
@@ -25,7 +25,6 @@
     margin-left: 5px;
 }
 
-/* hide if in print view */
 @media print {
-      div#chrome_the_website_ip {display:none!important;}
+    #chrome_the_website_ip {display: none!important;}
 }
