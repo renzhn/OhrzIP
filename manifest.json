@@ -9,7 +9,7 @@
       "matches": [ "http://*/*", "https://*/*" ],
       "run_at": "document_end"
    } ],
-   "description": "在网页中右下角显示服务器和本机的IP地址及地理位置，使用了纯真IP数据库。",
+   "description": "在网页右下角显示服务器和本机的IP地址及地理位置，使用纯真IP数据库。",
    "icons": {
       "128": "/res/icon/icon.png",
       "64": "/res/icon/icon.png",
