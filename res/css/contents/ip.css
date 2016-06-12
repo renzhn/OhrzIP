@@ -1,29 +1,29 @@
-div#chrome_the_website_ip {
-	display:block!important;
+#chrome_the_website_ip {
+	display: block!important;
 	position: fixed!important;
 	bottom: 3px!important;
-	background: #d9ead3!important;
+        background: white!important;
 	padding: 4px 5px!important;
 	border: 1px solid #919191!important;
 	font: 12px/1.1 'Microsoft YaHei', 'Arial', Helvetica, sans-serif!important;
 	color: #333!important;
-	cursor: default!important;
 	outline: 0!important;
 	vertical-align: baseline!important;
 	margin: 0!important;
-	-webkit-touch-callout: none!important; 
-	-webkit-user-select: none!important; 
-	user-select: none!important;
 	z-index: 2147483646!important;
-	opacity: 1!important;
+	opacity: 0.9!important;
+	right: 3px!important;
+        text-align: center;
 }
 
-div.chrome_the_website_ip_right {
-	right: 10px!important;
-}
-
-div.chrome_the_website_ip_left {
-	left: 10px!important;
+#chrome_the_website_close {
+    float:right;
+    display:inline-block;
+    background: #eee;
+    cursor: pointer;
+    padding: 1px;
+    font-size: 8px;
+    margin-left: 5px;
 }
 
 /* hide if in print view */
