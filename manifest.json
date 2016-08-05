@@ -26,5 +26,5 @@
       "default_title": "点击开启或关闭显示“我的IP”"
    },
    "permissions": [ "tabs", "http://*/*", "https://*/*", "webRequest", "storage" ],
-   "version": "1.0.0"
+   "version": "1.0.2"
 }
