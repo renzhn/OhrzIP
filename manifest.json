@@ -1,12 +1,13 @@
 {
    "background": {
-      "scripts": [ "/res/js/ajax.js", "/res/js/background.js" ]
+      "scripts": [ "/res/js/ajax.js", "/res/js/background.js" ],
+      "persistent": true
    },
    "content_scripts": [ {
       "all_frames": false,
       "css": [ "/res/css/contents/ip.css" ],
       "js": [ "/res/js/contents/ip.js" ],
-      "matches": [ "http://*/*", "https://*/*" ],
+      "matches": [ "<all_urls>" ],
       "run_at": "document_end"
    } ],
    "description": "在网页右下角显示服务器和本机的IP地址及地理位置，使用纯真IP数据库。",
@@ -18,6 +19,7 @@
    },
    "manifest_version": 2,
    "name": "Ohrz IP",
+   "author": "Renzhn",
    "browser_action": {
       "default_icon": {
          "19": "res/icon/icon.png",

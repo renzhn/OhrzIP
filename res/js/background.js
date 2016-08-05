@@ -1,16 +1,16 @@
 var setting = {'status': 'on'};
 
 function saveSetting() {
-    chrome.storage.local.set({'status': setting['status']}, function () {});
+    browser.storage.local.set({'status': setting['status']}, function () {});
 }
 
 function setStatus(status) {
     if (status !== 'off') {
-        chrome.browserAction.setBadgeText({'text': 'on'});
-        chrome.browserAction.setBadgeBackgroundColor({'color': '#14892c'});
+        browser.browserAction.setBadgeText({'text': 'on'});
+        browser.browserAction.setBadgeBackgroundColor({'color': '#14892c'});
     } else {
-        chrome.browserAction.setBadgeText({'text': 'off'});
-        chrome.browserAction.setBadgeBackgroundColor({'color': '#d04437'});
+        browser.browserAction.setBadgeText({'text': 'off'});
+        browser.browserAction.setBadgeBackgroundColor({'color': '#d04437'});
     }
     saveSetting();
 }
@@ -25,22 +25,22 @@ function toggleOnOff(tab) {
 }
 
 // 监听事件
-chrome.webRequest.onCompleted.addListener(onCompletedFunc, {urls: [], types: ['main_frame']}, []);
-chrome.browserAction.onClicked.addListener(toggleOnOff);
+browser.webRequest.onCompleted.addListener(onCompletedFunc, {urls: ['<all_urls>'], types: ['main_frame']}, []);
+browser.browserAction.onClicked.addListener(toggleOnOff);
 
 // 回复状态
-chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+browser.runtime.onMessage.addListener(function (message, sender, sendResponse) {
     // 请求设置状态
-    if ('ip' === request.get) {
+    if ('ip' === message.get) {
         var ip = 'null';
         if (currentIPList[sender.tab.url]) {
             ip = currentIPList[sender.tab.url];
             delete currentIPList[sender.tab.url];
         }
         sendResponse({'ip': ip});
-    } else if ('location' === request.get) {
+    } else if ('location' === message.get) {
         var location = '';
-        http_ajax('http://www.cz88.net/ip/index.aspx?ip=' + request.data, 'GET', false, function (data) {
+        http_ajax('http://www.cz88.net/ip/index.aspx?ip=' + message.data, 'GET', false, function (data) {
             if (data.success) {
                 try {
                     var addr = data.content.match(/id="InputIPAddrMessage">(.*?)</);
@@ -73,7 +73,7 @@ function onCompletedFunc(info) {
     return;
 }
 
-chrome.storage.local.get(['status'], function (data) {
+browser.storage.local.get(['status'], function (data) {
     if ('off' === data['status']) {
         setting['status'] = 'off';
     }

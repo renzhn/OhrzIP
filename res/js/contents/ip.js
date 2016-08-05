@@ -1,20 +1,21 @@
 var ipDom = null;
 function tag(type, id, innerHTML) {
     var el = document.createElement(type);
+    el.setAttribute("x-ms-format-detection", "none");
     el.id = id;
     el.innerHTML = innerHTML;
     return el;
 }
 
 function requestIPLocation(ip) {
-    chrome.extension.sendMessage({'get': 'location', 'data': ip}, function (response) {
+    browser.runtime.sendMessage({'get': 'location', 'data': ip}, function (response) {
         if (response && response.location && ipDom) {
             ipDom.innerHTML = ipDom.innerHTML + response.location;
         }
     });
 }
 
-chrome.extension.sendMessage({'get': 'ip'}, function (response) {
+browser.runtime.sendMessage({'get': 'ip'}, function (response) {
     var ip = 'null';
     if (response && response.ip) {
         ip = response.ip;
