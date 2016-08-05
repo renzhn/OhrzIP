@@ -19,9 +19,12 @@ chrome.extension.sendMessage({'get': 'ip'}, function (response) {
     if (response && response.ip) {
         ip = response.ip;
     }
-    var html = "<span id='chrome_the_website_close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>X</span>";
+    if (ip === 'null' || !ip) {
+        return;
+    }
+    var html = "<span id='ohrz_ip_extension_close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>X</span>";
     html += '服务器IP ' + ip;
-    ipDom = tag('div', 'chrome_the_website_ip', html);
+    ipDom = tag('div', 'ohrz_ip_extension', html);
     document.body.appendChild(ipDom);
     requestIPLocation(ip);
 });

@@ -1,4 +1,4 @@
-#chrome_the_website_ip {
+#ohrz_ip_extension {
     display: block!important;
     position: fixed!important;
     bottom: 3px!important;
@@ -17,7 +17,7 @@
     letter-spacing: 0;
 }
 
-#chrome_the_website_close {
+#ohrz_ip_extension_close {
     float:right;
     display:inline-block;
     background: #eee;
@@ -27,5 +27,5 @@
 }
 
 @media print {
-    #chrome_the_website_ip {display: none!important;}
+    #ohrz_ip_extension {display: none!important;}
 }
