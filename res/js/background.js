@@ -31,7 +31,7 @@ chrome.browserAction.onClicked.addListener(toggleOnOff);
 // 回复状态
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     // 请求设置状态
-    if ('ip' === request.get) {
+    if ('ip' === request.get && setting['status'] === 'on') {
         var ip = 'null';
         if (currentIPList[sender.tab.url]) {
             ip = currentIPList[sender.tab.url];
@@ -40,26 +40,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         sendResponse({'ip': ip});
     } else if ('location' === request.get) {
         var location = '';
-        http_ajax('http://www.cz88.net/ip/index.aspx?ip=' + request.data, 'GET', false, function (data) {
+        http_ajax('http://ip.ohrz.net/?ip=' + request.data, 'GET', false, function (data) {
             if (data.success) {
-                try {
-                    var addr = data.content.match(/id="InputIPAddrMessage">(.*?)</);
-                    if (addr) {
-                        location += '<br />[' + addr[1] + ']';
-                    }
-                    if (setting['status'] === 'on') {
-                        var myIp = data.content.match(/id="cz_ip">(.*?)</);
-                        if (myIp) {
-                            location += '<br />我的IP ' + myIp[1];
-                        }
-                        var myAddr = data.content.match(/id="cz_addr">(.*?)</);
-                        if (myAddr) {
-                            location += '<br />[' + myAddr[1] + ']';
-                        }
-                    }
-                } catch (exception) {
-                    console.log(exception);
-                }
+                location += '<br />[' + data.content + ']';
             }
         });
         sendResponse({'location': location});

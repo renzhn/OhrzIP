@@ -23,8 +23,8 @@
          "19": "res/icon/icon.png",
          "38": "res/icon/icon.png"
       },
-      "default_title": "点击开启或关闭显示“我的IP”"
+      "default_title": "点击开启或关闭"
    },
    "permissions": [ "tabs", "http://*/*", "https://*/*", "webRequest", "storage" ],
-   "version": "1.0.2"
+   "version": "1.0.3"
 }
