@@ -1,4 +1,9 @@
 var setting = {'status': 'on'};
+var referal = {
+    'Linode': 'https://www.linode.com/?r=68549ab9042343ab7a86da0a65d6a75c84209c23',
+    'Vultr': 'http://www.vultr.com/?ref=6877248',
+    'Digital Ocean': 'https://www.digitalocean.com/?refcode=1bfd2d1c9960',
+};
 
 function saveSetting() {
     chrome.storage.local.set({'status': setting['status']}, function () {});
@@ -42,7 +47,15 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         var location = '';
         http_ajax('http://ip.ohrz.net/?ip=' + request.data, 'GET', false, function (data) {
             if (data.success) {
-                location += '<br />[' + data.content + ']';
+                var content = data.content.trim();
+                if (!content) {
+                    return;
+                }
+                for (var keyword in referal) {
+                    let ref = referal[keyword];
+                    content = content.replace(keyword, '<a href="' + ref + '">' + keyword + '</a>');
+                }
+                location += '<br />[' + content + ']';
             }
         });
         sendResponse({'location': location});
