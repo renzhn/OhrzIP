@@ -11,7 +11,7 @@
     vertical-align: baseline!important;
     margin: 0!important;
     z-index: 2147483647!important;
-    opacity: 0.9!important;
+    opacity: 0.8!important;
     right: 3px!important;
     text-align: center;
     letter-spacing: 0;
@@ -23,7 +23,7 @@
     background: #eee;
     cursor: pointer;
     font-size: 8px;
-    margin-left: 5px;
+    margin-left: 2px;
 }
 
 @media print {

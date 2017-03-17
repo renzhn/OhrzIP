@@ -23,7 +23,7 @@ chrome.extension.sendMessage({'get': 'ip'}, function (response) {
         return;
     }
     var html = "<span id='ohrz_ip_extension_close' onclick='this.parentNode.parentNode.removeChild(this.parentNode); return false;'>X</span>";
-    html += '服务器IP ' + ip;
+    html += ip;
     ipDom = tag('div', 'ohrz_ip_extension', html);
     document.body.appendChild(ipDom);
     requestIPLocation(ip);

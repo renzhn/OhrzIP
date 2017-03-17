@@ -29,6 +29,17 @@ function toggleOnOff(tab) {
     setStatus(setting['status']);
 }
 
+function isLocalIP(ip) {
+	return ip === '127.0.0.1' || ip === '::1';
+}
+
+function isPrivateIP(ip) {
+   var parts = ip.split('.');
+   return parts[0] === '10' || 
+      (parts[0] === '172' && (parseInt(parts[1], 10) >= 16 && parseInt(parts[1], 10) <= 31)) || 
+      (parts[0] === '192' && parts[1] === '168');
+}
+
 // 监听事件
 chrome.webRequest.onCompleted.addListener(onCompletedFunc, {urls: [], types: ['main_frame']}, []);
 chrome.browserAction.onClicked.addListener(toggleOnOff);
@@ -44,21 +55,26 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         }
         sendResponse({'ip': ip});
     } else if ('location' === request.get) {
-        var location = '';
-        http_ajax('http://ip.ohrz.net/?ip=' + request.data, 'GET', false, function (data) {
-            if (data.success) {
-                var content = data.content.trim();
-                if (!content) {
-                    return;
-                }
-                for (var keyword in referal) {
-                    let ref = referal[keyword];
-                    content = content.replace(keyword, '<a href="' + ref + '">' + keyword + '</a>');
-                }
-                location += '<br />[' + content + ']';
-            }
-        });
-        sendResponse({'location': location});
+		var ip = request.data;
+		var location = '';
+		if (isLocalIP(ip)) {
+			location = '本地';
+		} else if (isPrivateIP(ip)) {
+			location = '内网';
+		} else {
+			http_ajax('http://ip.ohrz.net/?ip=' + ip, 'GET', false, function (data) {
+				if (data.success) {
+					var content = data.content.trim();
+					if (!content) {
+						return;
+					}
+					for (var keyword in referal) {
+						location = content.replace(keyword, '<a href="' + referal[keyword] + '">' + keyword + '</a>');
+					}
+				}
+			});
+		}
+        sendResponse({'location': '[' + location + ']'});
     }
 });
 
