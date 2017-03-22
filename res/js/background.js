@@ -62,7 +62,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 		} else if (isPrivateIP(ip)) {
 			location = '内网';
 		} else {
-			http_ajax('http://ip.ohrz.net/?ip=' + ip, 'GET', false, function (data) {
+			http_ajax('https://ip.ohrz.net/?ip=' + ip, 'GET', false, function (data) {
 				if (data.success) {
 					var content = data.content.trim();
 					if (!content) {
@@ -74,7 +74,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 				}
 			});
 		}
-        sendResponse({'location': '[' + location + ']'});
+        sendResponse({'location': '<br>' + location});
     }
 });
 
